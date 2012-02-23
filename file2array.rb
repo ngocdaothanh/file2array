@@ -1,7 +1,7 @@
 # Put list of files here
-$filenames = ["main.c"]
+$filenames = ["myfile.txt"]
 
-# Put format here
+# Put format here, see below for a list of formats
 $writer_format = lambda { CSharp }
 
 #------------------------------------------------------------------------------
@@ -28,7 +28,7 @@ CSharp = {
 #   write(byte)
 #   eof
 
-class CSharpWriter
+class Writer
   NUM_ELEMENTS_PER_LINE = 15
 
   def initialize(basename_without_extension)
@@ -78,7 +78,7 @@ end
 $filenames.each do |filename|
   File.open(filename) do |file|
   	basename_without_extension = File.basename(filename, File.extname(filename))
-  	writer = CSharpWriter.new(basename_without_extension)
+  	writer = Writer.new(basename_without_extension)
     file.each_byte { |byte| writer.write(byte) }
     writer.eof
   end
