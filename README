@@ -2,3 +2,6 @@ See http://stackoverflow.com/questions/5679834/convert-binary-data-into-hex-stri
 
 Customize $filenames and $writer_format in file2array.rb, then run:
 ruby file2array.rb
+
+On Mac, you can use xxd:
+xxd -i foo.png
